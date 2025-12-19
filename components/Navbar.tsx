@@ -48,7 +48,7 @@ const Navbar = () => {
             {/* search button */}
             <SearchButton ariaLabel='Cari wisata populer di jogjakarta' handleClick={() => {}} isScrolled={isScrolled} />
             {/* menu button */}
-            <MenuButton handleClick={() => {}} isScrolled={isScrolled} />
+            <MenuButton isScrolled={isScrolled} />
           </div>
         </nav>
       </ContentContainer>
