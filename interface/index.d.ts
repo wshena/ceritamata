@@ -21,6 +21,39 @@ interface IconButtonProps {
   url?: string,
 }
 
+interface CarouselButtonProps {
+  onPrev: () => void;
+  onNext: () => void;
+  isPrevDisabled?: boolean;
+  isNextDisabled?: boolean;
+  prevButtonProps?: React.ButtonHTMLAttributes<HTMLButtonElement>;
+  nextButtonProps?: React.ButtonHTMLAttributes<HTMLButtonElement>;
+  prevLabel?: string;
+  nextLabel?: string;
+  className?: string;
+  type?: 'prev' | 'next';
+}
+
+interface CarouselProps {
+  children: React.ReactNode[];
+  itemsPerView?: number;
+  scrollBy?: number;
+  slideWidth?: number;
+  gap?: number;
+  autoPlay?: boolean;
+  autoPlayInterval?: number;
+  infinite?: boolean;
+  showDots?: boolean;
+  showButtons?: boolean;
+  className?: string;
+}
+
+interface CarouselItemProps {
+  children: React.ReactNode;
+  className?: string;
+  onClick?: () => void;
+}
+
 interface CardWithImageProps {
   title: string
   paragraf?: string
@@ -108,6 +141,13 @@ interface UtilityStore {
   isMenuOpen: boolean
   toggleMenu: () => void
   closeMenu: () => void
+}
+
+interface CarouselState {
+  currentIndex: number;
+  isTransitioning: boolean;
+  setCurrentIndex: (index: number) => void;
+  setIsTransitioning: (transitioning: boolean) => void;
 }
 
 interface CongratulationsMessage {

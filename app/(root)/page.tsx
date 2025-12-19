@@ -1,10 +1,13 @@
 import { IconButton } from "@/components/Buttons";
+import CarouselButtons from "@/components/CarouselButton";
 import { ArticleCard, CardWithImage } from "@/components/Cards";
 import ContentContainer from "@/components/container/ContentContainer";
 import { CardColumn, CardRow } from "@/components/layout/CardGrid";
 import { FlexContainer } from "@/components/layout/FlexContainer";
+import SpotlightCarousel from "@/components/SpotlightCarousel";
 import { ExperienceHighlights, JogjaArticles, JogjaTourPackages, SpotlightItems } from "@/const";
 import { ArrowRightIcon } from "@/icons";
+import { useCarousel } from "@/hooks/useCarousel";
 
 export default function Home() {
   return (
@@ -15,7 +18,7 @@ export default function Home() {
         <video id="mainVideo" autoPlay loop muted playsInline preload="auto" controls={false} style={{
           objectFit: 'cover'
         }} className="h-full w-full">
-          <source src="/video/hero.mp4" type="video/mp4" />
+          <source src="/video/vecteezy_beautiful-aerial-view-panorama-on-parangtritis-beach_9266005.mp4" type="video/mp4" />
         </video>
 
         {/* writing */}
@@ -61,12 +64,12 @@ export default function Home() {
       {/* experinces */}
 
       {/* spotlight */}
-      <section className="bg-[url('/images/bg-spotlight.webp')] bg-center bg-cover overflow-x-hidden">
+      <section className="bg-[url('/images/texture.jpg')] bg-center bg-cover overflow-x-hidden">
         <ContentContainer>
           <div className="px-5 md:px-10 lg:px-0 py-5 md:py-25">
             <div className="flex flex-col lg:flex-row items-center gap-8 xl:gap-10">
               {/* writing */}
-              <div className="mx-0 md:mx-5 lg:mx-20 border w-full lg:w-[45%]">
+              <div className="mx-0 md:mx-5 lg:mx-20 w-full lg:w-[45%]">
                 <div className="flex flex-col items-start gap-3 lg:gap-5 text-white">
                   <span className="font-semibold text-[1.3rem] capitalize">spotlight</span>
                   <h1 className="font-semibold leading-15 text-[3rem]">Ciri Khas Jogjakarta</h1>
@@ -74,22 +77,16 @@ export default function Home() {
 
                   <IconButton label="temukan ciri khas jogjakarta" isLink={true} url={'#'} icon={<ArrowRightIcon size={15} color="white" />} style="mt-5 lg:mt-10 border border-white font-semibold capitalize text-[.9rem]" />
                 </div>
-
-                {/* next prev slider */}
-                <div className="mt-10 w-full hidden lg:flex justify-end text-white">
-                  <div className="flex items-center gap-5">
-                    <h1>prev</h1>
-                    <h1>next</h1>
-                  </div>
-                </div>
               </div>
 
               {/* carousel */}
               <div className='w-full lg:w-[50%] xl:w-[65%]'>
-                <div className="w-full md:w-fit h-fit md:h-full flex items-center gap-8">
-                  {SpotlightItems.map((item) => (
+                <div className="w-full md:w-fit h-fit md:h-full">
+                  {/* {SpotlightItems.map((item) => (
                     <CardWithImage key={item.id} {...item} dimension="w-70 lg:w-100 h-90 lg:h-150" />
-                  ))}
+                  ))} */}
+                  
+                  <SpotlightCarousel />
                 </div>
               </div>
             </div>
@@ -117,7 +114,7 @@ export default function Home() {
               
               {/* article */}
               <div className="w-full flex flex-col gap-8">
-                <div className="w-full flex flex-col md:flex-row items-center justify-between">
+                <div className="w-full flex flex-col gap-6 md:gap-0 md:flex-row items-center justify-between">
                   {JogjaArticles.filter(item => item.id !== 'ART-JOGJA-004').map((item) => (
                     <ArticleCard key={item.id} title={item.title} alt={item.subtitle} date={item.date} image={item.image} dimension="w-70 md:w-[220px] lg:w-[300px] h-[400px] xl:w-[350px] xl:h-[600px]" />
                   ))}

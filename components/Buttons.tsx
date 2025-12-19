@@ -2,7 +2,6 @@
 
 import { CloseIcon, MenuIcon, SearchIcon } from '@/icons'
 import { useUtilityStore } from '@/lib/zustand/store'
-import React from 'react'
 
 export const IconButton = ({label, icon, style, handleClick, isLink, url}:IconButtonProps) => {
   return (
