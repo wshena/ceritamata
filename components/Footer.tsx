@@ -2,6 +2,7 @@ import React from 'react'
 import ContentContainer from './container/ContentContainer'
 import { NavbarLinks } from '@/const'
 import Logo from './Logo'
+import { CallIcon, MapPinIcon } from '@/icons'
 
 const Footer = () => {
   return (
@@ -27,6 +28,21 @@ const Footer = () => {
               </li>
             ))}
           </ul>
+
+          <div className="w-full lg:w-[40%] flex flex-col gap-2">
+            <div className="flex items-center gap-2">
+              <MapPinIcon size={20} color="gray"  />
+              <span className='w-full md:w-[70%] capitalize text-sm text-gray-600'>Jl. MUH. YAMIN NO. 6, SERENGAN, SURAKARTA, JAWA TENGAH INDONESIA</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <MapPinIcon size={20} color="gray"  />
+              <span className='w-full md:w-[70%] capitalize text-sm text-gray-600'>TAMAN KENCANA SEJAHTERA No. 23 CONDONGCATUR, MANCASAN KIDUL YOGYAKARTA, INDONESIA</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CallIcon size={20} color="gray"  />
+              <span className='capitalize text-sm text-gray-600'>(SI TAMA) WA. 0822 9985 2040</span>
+            </div>
+          </div>
 
           <span className="block w-full h-px bg-gray-300"></span>
 

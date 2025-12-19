@@ -1,7 +1,12 @@
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { FaAngleDown, FaAngleUp, FaAngleRight, FaAngleLeft, FaArrowRight } from "react-icons/fa";
 import { MdMenu } from "react-icons/md";
-import { IoClose } from "react-icons/io5";
+import { IoClose, IoCall } from "react-icons/io5";
+import { LuMapPin } from "react-icons/lu";
+
+export const CallIcon = ({size, color, style}:IconProps) => <IoCall size={size} color={color} className={style} />
+
+export const MapPinIcon = ({size, color, style}:IconProps) => <LuMapPin size={size} color={color} className={style} />
 
 export const MenuIcon = ({size, color, style}:IconProps) => <MdMenu size={size} color={color} className={style} />
 
