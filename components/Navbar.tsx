@@ -11,13 +11,16 @@ const Navbar = () => {
 
   return (
     <header 
-      className={`w-full px py-3 xl:py-0 fixed top-0 left-0 z-50 transition-all duration-500 ease-in-out ${
+      className={`
+        w-full px py-3 xl:py-0 fixed top-0 left-0 z-50 transition-all duration-500 ease-in-out
+        ${
         isScrolled 
           ? 'shadow-lg backdrop-blur-sm bg-white/95' // Efek glassmorphism
           : ''
-      }`}
+        }
+        `}
       style={!isScrolled ? {
-        background: "linear-gradient(to bottom, rgb(0 0 0 / .3), #fff0)"
+        background: "rgba(0,0,0,0.8)",
     } : {}}>
       <ContentContainer>
         <nav className="flex items-center justify-between">

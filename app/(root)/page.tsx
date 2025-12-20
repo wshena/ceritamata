@@ -14,11 +14,13 @@ export default function Home() {
     <main className="w-full">
       {/* hero section */}
       <section className="relative w-full h-screen 2xl:h-200 overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-full bg-black/50"></div>
+
         {/* video container */}
         <video id="mainVideo" autoPlay loop muted playsInline preload="auto" controls={false} style={{
           objectFit: 'cover'
         }} className="h-full w-full">
-          <source src="/video/vecteezy_beautiful-aerial-view-panorama-on-parangtritis-beach_9266005.mp4" type="video/mp4" />
+          <source src="/video/tugu-jogja.mp4" type="video/mp4" />
         </video>
 
         {/* writing */}
