@@ -116,8 +116,8 @@ export const SpotlightItems = [
     {
       id: 5,
       image: "/images/pantai-mesra/pantai-mesra-1.jpeg",
-      title: "Pantai Parangtritis",
-      paragraf: "Pantai Parangtritis adalah pantai yang terletak di Bantul, Yogyakarta. Pantai ini terkenal dengan pemandangan sunset yang indah dan legenda Nyi Roro Kidul.",
+      title: "Pantai Mesra",
+      paragraf: "Pantai Mesra adalah pantai yang terletak di Gunungkidul, Yogyakarta. Pantai ini terkenal dengan kawasan pantai yang bersih, deburan ombak yang menerpa karang, dan taman indah dengan rerumputan hijau.",
       href: "#"
     }
   ]
@@ -338,7 +338,7 @@ export const JogjaTourPackages: TourPackage[] = [
 export const JogjaArticles = [
   {
     id: "ART-JOGJA-001",
-    title: "Bisik Pasir dan Rindu di Pantai Indrayanti",
+    title: "Bisik Pasir dan Rindu di Pantai Mesra",
     subtitle: "Di Mana Lautan Bercerita Tentang Letting Go dan Sunset yang Tak Pernah Sama",
     date: "15 Maret 2024",
     image: "/images/pantai-mesra/pantai-mesra-5.jpeg",
@@ -346,7 +346,7 @@ export const JogjaArticles = [
     readingTime: "6 menit",
     author: "Cerita Mata",
     location: {
-      name: "Pantai Indrayanti, Gunungkidul",
+      name: "Pantai Mesra, Gunungkidul",
       coordinates: "-8.1655, 110.6002",
       distanceFromCity: "65 km dari pusat kota (≈1.5 jam)"
     },
@@ -437,7 +437,7 @@ export const JogjaArticles = [
   },
   {
     id: "ART-JOGJA-003",
-    title: "Mengikuti Aliran: Sungai Oyo dan Seni Melupakan Waktu",
+    title: "Mengikuti Aliran: Gunung Pindul dan Seni Melupakan Waktu",
     subtitle: "Tubing di Sungai yang Mengajarkan Arti Keberangkalan",
     date: "10 April 2024",
     image: "/images/goa-pindul/goa-pindul-3.jpeg",
@@ -491,7 +491,7 @@ export const JogjaArticles = [
   },
   {
     id: "ART-JOGJA-004",
-    title: "Festival Kesenian Yogyakarta: Kota Menjadi Panggung",
+    title: "Festival Ngobaran Yogyakarta: Kota Menjadi Panggung",
     subtitle: "60 Hari di Mana Seni Mengalir di Setiap Sudut Jogja",
     date: "5 Mei 2024",
     image: "/images/adat-pantai-ngobaran/adat-pantai-ngobaran-2.jpeg",
