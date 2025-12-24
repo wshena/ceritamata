@@ -125,7 +125,7 @@ export const SpotlightItems = [
 export const JogjaTourPackages: TourPackage[] = [
   {
     id: "JOGJA-POETIC-01",
-    name: "Epik Budaya: Jejak-jejak Abadi",
+    name: "Epik Budaya: Jejak-jejak Abadi (Ilustrasi: Ngobaran)",
     image: "/images/adat-pantai-ngobaran/adat-pantai-ngobaran-4.jpeg",
     subtitle: "Sebuah Perjalanan Melalui Lembaran Sejarah & Rasa",
     description: "Paket eksklusif untuk jiwa yang ingin menyelami Jogja paling hakiki. Dari candi yang berdialog dengan fajar hingga sentuhan tangan pembatik yang sabar, setiap momen adalah puisi yang terwujud.",
