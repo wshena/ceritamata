@@ -4,7 +4,7 @@ import React from 'react'
 const Logo = () => {
   return (
     <Link href="/">
-      <img src="/images/new-logo-cropped.png" alt="Cerita Mata Logo" className="h-15 w-auto" />
+      <img src="/images/kala_kelana_white-removebg-preview.png" alt="Kala Kelana Logo" className="h-15 w-auto" />
     </Link>
   )
 }

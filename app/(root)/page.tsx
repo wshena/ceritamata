@@ -26,7 +26,7 @@ export default function Home() {
         {/* writing */}
         <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
           <div className="flex flex-col items-center text-center px gap-1 text-white">
-            <h1 className="text-shadow-2xl font-bold text-[1.5rem] lg:text-[2.5rem]">Jogjakarta: Serambi Budaya, Jiwa yang terukir dalam Rentang Waktu.</h1>
+            <h1 className="text-shadow-2xl font-bold text-[1.5rem] lg:text-[2.5rem]">Yogyakarta: Serambi Budaya, Jiwa yang terukir dalam Rentang Waktu.</h1>
             <span className="text-[1rem] xl:text-[1.5rem]">Temukan sebuah epik yang menunggu untuk Anda alami dengan segenap indra.</span>
           </div>
         </div>
@@ -37,7 +37,7 @@ export default function Home() {
       <section className="w-full">
         <ContentContainer>
           <div className="px-5 md:px-10 xl:px-20 py-5 md:py-25">
-            <h1 className="font-semibold mb-10 leading-10 md:leading-15 text-[2rem] md:text-[3rem]">Experiences Jogjakarta</h1>
+            <h1 className="font-semibold mb-10 leading-10 md:leading-15 text-[2rem] md:text-[3rem]">Experiences Yogyakarta</h1>
 
             <div className="w-full flex items-center justify-center">
               <div className="overflow-x-auto">
@@ -74,10 +74,10 @@ export default function Home() {
               <div className="mx-0 md:mx-5 lg:mx-20 w-full lg:w-[45%]">
                 <div className="flex flex-col items-start gap-3 lg:gap-5 text-white">
                   <span className="font-semibold text-[1.3rem] capitalize">spotlight</span>
-                  <h1 className="font-semibold leading-15 text-[3rem]">Ciri Khas Jogjakarta</h1>
-                  <span>Temukan keunikan budaya Jogjakarta melalui karakteristik menariknya, seperti kerajinan tangan, tradisi lokal, dan spesial kuliner yang menggugah selera.</span>
+                  <h1 className="font-semibold leading-15 text-[3rem]">Ciri Khas Yogyakarta</h1>
+                  <span>Temukan keunikan budaya Yogyakarta melalui karakteristik menariknya, seperti kerajinan tangan, tradisi lokal, dan spesial kuliner yang menggugah selera.</span>
 
-                  <IconButton label="temukan ciri khas jogjakarta" isLink={true} url={'#'} icon={<ArrowRightIcon size={15} color="white" />} style="mt-5 lg:mt-10 border border-white font-semibold capitalize text-[.9rem]" />
+                  <IconButton label="temukan ciri khas Yogyakarta" isLink={true} url={'#'} icon={<ArrowRightIcon size={15} color="white" />} style="mt-5 lg:mt-10 border border-white font-semibold capitalize text-[.9rem]" />
                 </div>
               </div>
 
@@ -106,7 +106,7 @@ export default function Home() {
               <div className="w-full">
                 <h1 className="font-semibold leading-10 md:leading-15 text-[2rem] md:text-[3rem]">Through Traveler's Eyes</h1>
                 <div className="mt-5 md:mt-0 w-full flex flex-col md:flex-row gap-4 md:gap-0 md:items-center justify-between">
-                  <span className="text-[1rem] lg:text-[1.3rem]">Rasakan keseruan Jogjakarta melalui cerita mereka.</span>
+                  <span className="text-[1rem] lg:text-[1.3rem]">Rasakan keseruan Yogyakarta melalui cerita mereka.</span>
                   <a href="#" className="flex items-center gap-2">
                     <span className="capitalize font-semibold">Lihat Semua</span>
                     <ArrowRightIcon size={15} color="black" />
@@ -164,9 +164,9 @@ export default function Home() {
               <div className="w-full flex flex-col items-start gap-10">
                 {/* title */}
                 <div className="w-full">
-                  <h1 className="font-semibold leading-10 md:leading-15 text-[2rem] md:text-[3rem]">Let Tama Guide Your Steps</h1>
+                  <h1 className="font-semibold leading-10 md:leading-15 text-[2rem] md:text-[3rem]">Let Kellana Guide Your Steps</h1>
                   <div className="mt-5 md:mt-0 w-full flex flex-col md:flex-row gap-4 md:gap-0 md:items-center justify-between">
-                    <span className="text-[1rem] lg:text-[1.3rem]">Ikuti petualangan spektakuler bersata Tama</span>
+                    <span className="text-[1rem] lg:text-[1.3rem]">Ikuti petualangan spektakuler bersama Kallana</span>
                     <a href="#" className="flex items-center gap-2">
                       <span className="capitalize font-semibold">Lihat Semua</span>
                       <ArrowRightIcon size={15} color="black" />

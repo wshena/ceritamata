@@ -1,8 +1,8 @@
 export const NavbarLinks:NavbarLinksProps[] = [
   {
-    label: 'Our Jogja Beautiful Tourism Story',
+    label: 'Our Yogya Beautiful Tourism Story',
     sublinks: [
-      {label: 'The Heartbeat of Jogja', link: '#'},
+      {label: 'The Heartbeat of Yogya', link: '#'},
       {label: 'A Canvas of Time', link: '#'},
       {label: `Through Traveler's Eyes`, link: '#'},
       {label: 'Listen to the Whispers', link: '#'},
@@ -18,17 +18,17 @@ export const NavbarLinks:NavbarLinksProps[] = [
     ]
   },
   {
-    label: 'Contact our Personal si Tama',
+    label: 'Contact our Personal si Kallana',
     sublinks: [
-      {label: 'Meet Your Friend, Tama', link: '#'},
-      {label: 'Share Your Dream with Tama', link: '#'},
-      {label: `Let Tama Guide Your Steps`, link: '#'},
+      {label: 'Meet Your Friend, Kallana', link: '#'},
+      {label: 'Share Your Dream with Kallana', link: '#'},
+      {label: `Let Kallana Guide Your Steps`, link: '#'},
       {label: 'A Whisper Away', link: '#'},
-      {label: `Tama's Little Black Book`, link: '#'},
+      {label: `Kallana's Little Black Book`, link: '#'},
     ]
   },
   {
-    label: 'Who are cerita mata',
+    label: 'Who are Kala Kelana',
     sublinks: [
       {label: 'The Eyes Behind the Stories', link: '/the-eyes-behind-the-stories'},
       {label: 'Pages From Our Diary', link: '#'},
@@ -42,8 +42,8 @@ export const NavbarLinks:NavbarLinksProps[] = [
 export const ExperienceHighlights = [
   {
     id: 1,
-    title:"Jogja Food & Culinary",
-    paragraf:"Experience the authentic taste of Jogjakarta",
+    title:"Yogya Food & Culinary",
+    paragraf:"Experience the authentic taste of Yogyakarta",
     image:"/images/food.jpg",
     showBadge:true,
     badgeText:"Featured",
@@ -76,7 +76,7 @@ export const ExperienceHighlights = [
   {
     id: 6,
     title:"Festivals & Events",
-    paragraf:"Experience the festive spirit of Jogjakarta",
+    paragraf:"Experience the festive spirit of Yogyakarta",
     image:"/images/vw-safari-borobudur/vw-safari-borobudur-1.jpeg",
     showBadge:true,
     badgeText:"Popular",
@@ -109,7 +109,7 @@ export const SpotlightItems = [
     {
       id: 4,
       image: "/images/gudeg.jpg",
-      title: "Gudeg Jogja",
+      title: "Gudeg Yogya",
       paragraf: "Gudeg adalah makanan khas Yogyakarta yang terbuat dari nangka muda yang dimasak dengan santan. Makanan ini memiliki rasa manis dan gurih yang khas.",
       href: "#"
     },
@@ -128,7 +128,7 @@ export const JogjaTourPackages: TourPackage[] = [
     name: "Epik Budaya: Jejak-jejak Abadi (Ilustrasi: Ngobaran)",
     image: "/images/adat-pantai-ngobaran/adat-pantai-ngobaran-4.jpeg",
     subtitle: "Sebuah Perjalanan Melalui Lembaran Sejarah & Rasa",
-    description: "Paket eksklusif untuk jiwa yang ingin menyelami Jogja paling hakiki. Dari candi yang berdialog dengan fajar hingga sentuhan tangan pembatik yang sabar, setiap momen adalah puisi yang terwujud.",
+    description: "Paket eksklusif untuk jiwa yang ingin menyelami Yogya paling hakiki. Dari candi yang berdialog dengan fajar hingga sentuhan tangan pembatik yang sabar, setiap momen adalah puisi yang terwujud.",
     
     price: {
       perPerson: 2850000,
@@ -437,7 +437,7 @@ export const JogjaArticles = [
   },
   {
     id: "ART-JOGJA-003",
-    title: "Mengikuti Aliran: Gunung Pindul dan Seni Melupakan Waktu",
+    title: "Mengikuti Aliran: Goa Pindul dan Seni Melupakan Waktu",
     subtitle: "Tubing di Sungai yang Mengajarkan Arti Keberangkalan",
     date: "10 April 2024",
     image: "/images/goa-pindul/goa-pindul-3.jpeg",
