@@ -18,13 +18,13 @@ export const NavbarLinks:NavbarLinksProps[] = [
     ]
   },
   {
-    label: 'Contact our Personal si Kallana',
+    label: 'Contact our Personal si Kelana',
     sublinks: [
-      {label: 'Meet Your Friend, Kallana', link: '#'},
-      {label: 'Share Your Dream with Kallana', link: '#'},
-      {label: `Let Kallana Guide Your Steps`, link: '#'},
+      {label: 'Meet Your Friend, Kelana', link: '#'},
+      {label: 'Share Your Dream with Kelana', link: '#'},
+      {label: `Let Kelana Guide Your Steps`, link: '#'},
       {label: 'A Whisper Away', link: '#'},
-      {label: `Kallana's Little Black Book`, link: '#'},
+      {label: `Kelana's Little Black Book`, link: '#'},
     ]
   },
   {

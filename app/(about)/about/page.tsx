@@ -41,8 +41,8 @@ const page = () => {
         </div>
 
         <div className="w-full absolute top-0 left-0 z-20">
-          <section className="w-full h-100 flex items-center justify-center">
-            <h1 className='font-bold uppercase text-[2rem] md:text-[3rem] text-white'>Cerita Mata</h1>
+          <section className="w-full h-100 flex items-center justify-center bg-black/50">
+            <img src="/images/kala_kelana_white-removebg-preview.png" alt="Kala Kelana Logo" className="h-45 w-auto" />
           </section>
 
           <section className="w-full bg-white">

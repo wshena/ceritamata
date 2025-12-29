@@ -26,7 +26,8 @@ export default function Home() {
         {/* writing */}
         <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
           <div className="flex flex-col items-center text-center px gap-1 text-white">
-            <h1 className="text-shadow-2xl font-bold text-[1.5rem] lg:text-[2.5rem]">Yogyakarta: Serambi Budaya, Jiwa yang terukir dalam Rentang Waktu.</h1>
+            <h1 className="text-shadow-2xl font-bold text-[1.5rem] lg:text-[2.5rem]">Yogyakarta: </h1>
+            <h1 className="text-shadow-2xl font-bold text-[1.5rem] lg:text-[2.5rem]">Serambi Budaya, Jiwa yang terukir dalam Rentang Waktu.</h1>
             <span className="text-[1rem] xl:text-[1.5rem]">Temukan sebuah epik yang menunggu untuk Anda alami dengan segenap indra.</span>
           </div>
         </div>
@@ -164,9 +165,9 @@ export default function Home() {
               <div className="w-full flex flex-col items-start gap-10">
                 {/* title */}
                 <div className="w-full">
-                  <h1 className="font-semibold leading-10 md:leading-15 text-[2rem] md:text-[3rem]">Let Kellana Guide Your Steps</h1>
+                  <h1 className="font-semibold leading-10 md:leading-15 text-[2rem] md:text-[3rem]">Let Kelana Guide Your Steps</h1>
                   <div className="mt-5 md:mt-0 w-full flex flex-col md:flex-row gap-4 md:gap-0 md:items-center justify-between">
-                    <span className="text-[1rem] lg:text-[1.3rem]">Ikuti petualangan spektakuler bersama Kallana</span>
+                    <span className="text-[1rem] lg:text-[1.3rem]">Ikuti petualangan spektakuler bersama Kelana</span>
                     <a href="#" className="flex items-center gap-2">
                       <span className="capitalize font-semibold">Lihat Semua</span>
                       <ArrowRightIcon size={15} color="black" />
