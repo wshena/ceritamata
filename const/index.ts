@@ -44,7 +44,7 @@ export const ExperienceHighlights = [
     id: 1,
     title:"Yogya Food & Culinary",
     paragraf:"Experience the authentic taste of Yogyakarta",
-    image:"/images/food.jpg",
+    image:"/images/jangan-ndeso.jpg",
     showBadge:true,
     badgeText:"Featured",
     dimension:"w-70 md:w-82 lg:w-110 xl:w-140 h-50 md:h-90"
@@ -52,7 +52,7 @@ export const ExperienceHighlights = [
   {
     id: 2,
     title:"Beaches",
-    image:"/images/pantai-segoro/pantai-segoro-1.jpeg",
+    image:"/images/semi-private-beach/semi-private-beach5.jpeg",
     dimension:"w-full md:w-40 lg:w-53 xl:w-65 h-40",
   },
   {
@@ -338,10 +338,10 @@ export const JogjaTourPackages: TourPackage[] = [
 export const JogjaArticles = [
   {
     id: "ART-JOGJA-001",
-    title: "Bisik Pasir dan Rindu di Pantai Mesra",
+    title: "Bisik Pasir dan Rindu di Semi Private Beach",
     subtitle: "Di Mana Lautan Bercerita Tentang Letting Go dan Sunset yang Tak Pernah Sama",
     date: "15 Maret 2024",
-    image: "/images/pantai-mesra/pantai-mesra-5.jpeg",
+    image: "/images/semi-private-beach/semi-private-beach4.jpeg",
     category: "Pantai & Pesisir",
     readingTime: "6 menit",
     author: "Cerita Mata",

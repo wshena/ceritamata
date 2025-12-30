@@ -75,8 +75,8 @@ export default function Home() {
               <div className="mx-0 md:mx-5 lg:mx-20 w-full lg:w-[45%]">
                 <div className="flex flex-col items-start gap-3 lg:gap-5 text-white">
                   <span className="font-semibold text-[1.3rem] capitalize">spotlight</span>
-                  <h1 className="font-semibold leading-15 text-[3rem]">Ciri Khas Yogyakarta</h1>
-                  <span>Temukan keunikan budaya Yogyakarta melalui karakteristik menariknya, seperti kerajinan tangan, tradisi lokal, dan spesial kuliner yang menggugah selera.</span>
+                  <h1 className="font-semibold leading-10 text-[2rem]">Ungkap Keunikan Jogja Kala Berkelana</h1>
+                  <span>Kala berkelana rasakan & nikmati Keunikan Jogja dengan cara berbeda namun otentik; kuliner yg mengguah selera, alam dan tradisi lokal yang disajikan secara ekslusive serta karya budaya agung seni dan heritage yang menawan.</span>
 
                   <IconButton label="temukan ciri khas Yogyakarta" isLink={true} url={'#'} icon={<ArrowRightIcon size={15} color="white" />} style="mt-5 lg:mt-10 border border-white font-semibold capitalize text-[.9rem]" />
                 </div>
@@ -107,7 +107,7 @@ export default function Home() {
               <div className="w-full">
                 <h1 className="font-semibold leading-10 md:leading-15 text-[2rem] md:text-[3rem]">Through Traveler's Eyes</h1>
                 <div className="mt-5 md:mt-0 w-full flex flex-col md:flex-row gap-4 md:gap-0 md:items-center justify-between">
-                  <span className="text-[1rem] lg:text-[1.3rem]">Rasakan keseruan Yogyakarta melalui cerita mereka.</span>
+                  <span className="text-[1rem] lg:text-[1.3rem]">Wujudkan Kelana Anda ikuti keseruan mereka di Jogja IstiMewah bersama Kala Kelana Creative.</span>
                   <a href="#" className="flex items-center gap-2">
                     <span className="capitalize font-semibold">Lihat Semua</span>
                     <ArrowRightIcon size={15} color="black" />
@@ -167,7 +167,7 @@ export default function Home() {
                 <div className="w-full">
                   <h1 className="font-semibold leading-10 md:leading-15 text-[2rem] md:text-[3rem]">Let Kelana Guide Your Steps</h1>
                   <div className="mt-5 md:mt-0 w-full flex flex-col md:flex-row gap-4 md:gap-0 md:items-center justify-between">
-                    <span className="text-[1rem] lg:text-[1.3rem]">Ikuti petualangan spektakuler bersama Kelana</span>
+                    <span className="text-[1rem] lg:text-[1.3rem]">Pilih Keistimewaan Jogja dengan sajian IstiMewah dari Kala Kelana Creative. Moment Anda akan special selama di Jogja dimana pun destinasi-nya.</span>
                     <a href="#" className="flex items-center gap-2">
                       <span className="capitalize font-semibold">Lihat Semua</span>
                       <ArrowRightIcon size={15} color="black" />
