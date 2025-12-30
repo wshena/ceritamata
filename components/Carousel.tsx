@@ -1,8 +1,7 @@
 'use client';
 
-import React, { useEffect, useState, useCallback, useRef } from 'react';
-import CarouselButton from './CarouselButton';
-import { useCarouselStore } from '@/lib/zustand/store';
+import React, { useEffect, useState, useRef } from 'react';
+import { CarouselStore } from '@/lib/zustand/store';
 
 interface CarouselProps {
   children: React.ReactNode[];
@@ -16,6 +15,7 @@ interface CarouselProps {
   showDots?: boolean;
   showButtons?: boolean;
   className?: string;
+  store: CarouselStore; // Wajib: store instance
 }
 
 const Carousel: React.FC<CarouselProps> = ({
@@ -30,47 +30,73 @@ const Carousel: React.FC<CarouselProps> = ({
   showDots = true,
   showButtons = true,
   className = '',
+  store, // Store instance dari prop
 }) => {
-  const {
-    currentIndex,
-    isTransitioning,
-    setCurrentIndex,
-    setItemsPerView,
-    setScrollBy,
-    setIsTransitioning,
-  } = useCarouselStore();
-
   const [items, setItems] = useState<React.ReactNode[]>([]);
-  const [totalItems, setTotalItems] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
   const autoPlayRef = useRef<NodeJS.Timeout | null>(null);
+  
+  // Subscribe ke state dari store
+  const currentIndex = store((state) => state.currentIndex);
+  const isTransitioning = store((state) => state.isTransitioning);
+  // Try to read a dedicated setter from the state; if it doesn't exist, fall back to using the store's setState
+  const rawSetCurrentIndex = (store as any)((state: any) => state.setCurrentIndex);
+  const setCurrentIndex: (index: number) => void =
+    typeof rawSetCurrentIndex === 'function'
+      ? rawSetCurrentIndex
+      : (index: number) => {
+          if (typeof (store as any).setState === 'function') {
+            (store as any).setState({ currentIndex: index });
+          }
+        };
+  const setItemsPerView = store((state) => state.setItemsPerView);
+  const setScrollBy = store((state) => state.setScrollBy);
+  const setInfinite = store((state) => state.setInfinite);
+  const setChildrenLength = store((state) => state.setChildrenLength);
+  const setTotalItems = store((state) => state.setTotalItems);
+  const setIsTransitioning = store((state) => state.setIsTransitioning);
+  const goToNext = store((state) => state.goToNext);
 
-  // Inisialisasi dan setup infinite items
+  // Inisialisasi store
   useEffect(() => {
     if (children.length === 0) return;
 
     setItemsPerView(itemsPerView);
     setScrollBy(scrollBy);
+    setInfinite(infinite);
     setTotalItems(children.length);
+    setChildrenLength(children.length);
+  }, [
+    children.length,
+    itemsPerView,
+    scrollBy,
+    infinite,
+    setItemsPerView,
+    setScrollBy,
+    setInfinite,
+    setTotalItems,
+    setChildrenLength,
+  ]);
 
-    // Untuk infinite carousel, kita duplikasi item di awal dan akhir
+  // Setup items untuk infinite effect
+  useEffect(() => {
+    if (children.length === 0) return;
+
     if (infinite && children.length > 0) {
       const startItems = children.slice(-itemsPerView);
       const endItems = children.slice(0, itemsPerView);
       const duplicatedItems = [...startItems, ...children, ...endItems];
       setItems(duplicatedItems);
-      // Set index awal ke posisi yang benar (setelah item duplikat awal)
-      setCurrentIndex(itemsPerView);
     } else {
       setItems(children);
     }
-  }, [children, itemsPerView, scrollBy, infinite, setItemsPerView, setScrollBy, setCurrentIndex]);
+  }, [children, infinite, itemsPerView]);
 
-  // Auto play functionality
+  // Auto play
   useEffect(() => {
-    if (autoPlay && !isTransitioning) {
+    if (autoPlay && !isTransitioning && children.length > 0) {
       autoPlayRef.current = setInterval(() => {
-        handleNext();
+        goToNext();
       }, autoPlayInterval);
     }
 
@@ -79,72 +105,35 @@ const Carousel: React.FC<CarouselProps> = ({
         clearInterval(autoPlayRef.current);
       }
     };
-  }, [autoPlay, autoPlayInterval, isTransitioning]);
+  }, [autoPlay, autoPlayInterval, isTransitioning, children.length, goToNext]);
 
-  const handleTransitionEnd = useCallback(() => {
+  const handleTransitionEnd = () => {
     setIsTransitioning(false);
     
     // Reset ke posisi asli untuk infinite scroll
     if (infinite && items.length > 0 && children.length > 0) {
       if (currentIndex >= children.length + itemsPerView) {
-        // Jika di akhir (item duplikat), reset ke awal tanpa animasi
-        carouselRef.current?.style.setProperty('transition', 'none');
+        if (carouselRef.current) {
+          carouselRef.current.style.transition = 'none';
+        }
         setCurrentIndex(itemsPerView);
         setTimeout(() => {
-          carouselRef.current?.style.removeProperty('transition');
+          if (carouselRef.current) {
+            carouselRef.current.style.transition = '';
+          }
         }, 50);
       } else if (currentIndex < itemsPerView) {
-        // Jika di awal (item duplikat), reset ke akhir tanpa animasi
-        carouselRef.current?.style.setProperty('transition', 'none');
+        if (carouselRef.current) {
+          carouselRef.current.style.transition = 'none';
+        }
         setCurrentIndex(children.length);
         setTimeout(() => {
-          carouselRef.current?.style.removeProperty('transition');
+          if (carouselRef.current) {
+            carouselRef.current.style.transition = '';
+          }
         }, 50);
       }
     }
-  }, [currentIndex, infinite, items.length, children.length, itemsPerView, setIsTransitioning, setCurrentIndex]);
-
-  const handlePrev = () => {
-    if (isTransitioning) return;
-    
-    setIsTransitioning(true);
-    const newIndex = currentIndex - scrollBy;
-    
-    if (!infinite && newIndex < 0) {
-      setCurrentIndex(0);
-      setIsTransitioning(false);
-      return;
-    }
-    
-    setCurrentIndex(newIndex);
-  };
-
-  const handleNext = () => {
-    if (isTransitioning) return;
-    
-    setIsTransitioning(true);
-    const newIndex = currentIndex + scrollBy;
-    
-    if (!infinite && newIndex > totalItems - itemsPerView) {
-      setCurrentIndex(totalItems - itemsPerView);
-      setIsTransitioning(false);
-      return;
-    }
-    
-    setCurrentIndex(newIndex);
-  };
-
-  const goToSlide = (index: number) => {
-    if (isTransitioning) return;
-    
-    setIsTransitioning(true);
-    
-    if (!infinite) {
-      if (index < 0) index = 0;
-      if (index > totalItems - itemsPerView) index = totalItems - itemsPerView;
-    }
-    
-    setCurrentIndex(index + (infinite ? itemsPerView : 0));
   };
 
   // Hitung offset slide
@@ -152,10 +141,6 @@ const Carousel: React.FC<CarouselProps> = ({
     if (items.length === 0) return 0;
     return -currentIndex * (slideWidth + gap);
   };
-
-  // Cek jika tombol disabled
-  const isPrevDisabled = !infinite && currentIndex <= 0;
-  const isNextDisabled = !infinite && currentIndex >= totalItems - itemsPerView;
 
   return (
     <div className={`relative w-full ${className}`}>
@@ -180,48 +165,6 @@ const Carousel: React.FC<CarouselProps> = ({
           ))}
         </div>
       </div>
-
-      {showButtons && items.length > itemsPerView && (
-        <div className="w-full flex items-center justify-center md:items-start md:justify-start">
-          <div className='mt-5 md:mt-10 flex items-center'>
-            <CarouselButton
-              direction="prev"
-              onClick={handlePrev}
-              disabled={isPrevDisabled}
-            />
-            <CarouselButton
-              direction="next"
-              onClick={handleNext}
-              disabled={isNextDisabled}
-            />
-          </div>
-        </div>
-      )}
-
-      {showDots && children.length > 0 && (
-        <div className="flex justify-center mt-6 space-x-2">
-          {Array.from({ length: Math.ceil(totalItems / scrollBy) }).map((_, index) => {
-            const isActive = infinite
-              ? (currentIndex - itemsPerView) >= index * scrollBy && 
-                (currentIndex - itemsPerView) < (index + 1) * scrollBy
-              : currentIndex >= index * scrollBy && 
-                currentIndex < (index + 1) * scrollBy;
-            
-            return (
-              <button
-                key={index}
-                onClick={() => goToSlide(index * scrollBy)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  isActive 
-                    ? 'bg-blue-600 w-6' 
-                    : 'bg-gray-300 hover:bg-gray-400'
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            );
-          })}
-        </div>
-      )}
     </div>
   );
 };

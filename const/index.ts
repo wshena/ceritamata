@@ -342,6 +342,14 @@ export const JogjaArticles = [
     subtitle: "Di Mana Lautan Bercerita Tentang Letting Go dan Sunset yang Tak Pernah Sama",
     date: "15 Maret 2024",
     image: "/images/semi-private-beach/semi-private-beach4.jpeg",
+    images: [
+      '/images/semi-private-beach/semi-private-beach1.jpeg',
+      '/images/semi-private-beach/semi-private-beach2.jpeg',
+      '/images/semi-private-beach/semi-private-beach3.jpeg',
+      '/images/semi-private-beach/semi-private-beach4.jpeg',
+      '/images/semi-private-beach/semi-private-beach5.jpeg',
+      '/images/semi-private-beach/semi-private-beach6.jpeg'
+    ],
     category: "Pantai & Pesisir",
     readingTime: "6 menit",
     author: "Cerita Mata",

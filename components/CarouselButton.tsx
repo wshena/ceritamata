@@ -1,41 +1,67 @@
-import { AngleLeftIcon, AngleRightIcon } from '@/icons';
+'use client';
+
 import React from 'react';
+import { CarouselStore } from '@/lib/zustand/store';
 
 interface CarouselButtonProps {
   direction: 'prev' | 'next';
-  onClick: () => void;
-  disabled?: boolean;
+  store: CarouselStore; // Wajib: store instance dari Carousel
   className?: string;
+  disabledClassName?: string;
+  children?: React.ReactNode;
+  showDefaultIcon?: boolean;
+  onClick?: () => void; // Optional: untuk override
 }
 
 const CarouselButton: React.FC<CarouselButtonProps> = ({
   direction,
-  onClick,
-  disabled = false,
+  store,
   className = '',
+  disabledClassName = 'opacity-50 cursor-not-allowed',
+  children,
+  showDefaultIcon = true,
+  onClick,
 }) => {
-  const Icon = direction === 'prev' ? <AngleLeftIcon size={25} color='white' /> : <AngleRightIcon size={25} color='white' />;
-  const baseClasses = `
-    transition-all duration-300 
-    active:scale-95 
-    disabled:opacity-50 disabled:cursor-not-allowed
-    cursor-pointer
-    p-2 rounded-full bg-none hover:bg-white/20
-    ${className}
-  `;
-  
-  const positionClasses = direction === 'prev' 
-    ? 'left-2 md:-left-6' 
-    : 'right-2 md:-right-6';
+  // Subscribe ke state yang diperlukan
+  const currentIndex = store((state) => state.currentIndex);
+  const itemsPerView = store((state) => state.itemsPerView);
+  const childrenLength = store((state) => state.childrenLength);
+  const infinite = store((state) => state.infinite);
+  const isTransitioning = store((state) => state.isTransitioning);
+  const goToPrev = store((state) => state.goToPrev);
+  const goToNext = store((state) => state.goToNext);
+
+  const isPrevDisabled = !infinite && currentIndex <= 0;
+  const isNextDisabled = !infinite && currentIndex >= childrenLength - itemsPerView;
+
+  const handleClick = () => {
+    if (onClick) {
+      onClick();
+      return;
+    }
+
+    if (isTransitioning) return;
+
+    if (direction === 'prev') {
+      goToPrev();
+    } else {
+      goToNext();
+    }
+  };
+
+  const isDisabled = direction === 'prev' ? isPrevDisabled : isNextDisabled;
 
   return (
     <button
-      onClick={onClick}
-      disabled={disabled}
-      className={`${baseClasses}`}
-      aria-label={`Slide ${direction}`}
+      onClick={handleClick}
+      disabled={isDisabled}
+      className={`
+        ${className}
+        ${isDisabled ? disabledClassName : ''}
+      `}
+      aria-label={direction === 'prev' ? 'Previous slide' : 'Next slide'}
     >
-      {Icon}
+      {children}
     </button>
   );
 };

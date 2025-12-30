@@ -7,7 +7,7 @@ import { FlexContainer } from "@/components/layout/FlexContainer";
 import SpotlightCarousel from "@/components/SpotlightCarousel";
 import { ExperienceHighlights, JogjaArticles, JogjaTourPackages, SpotlightItems } from "@/const";
 import { ArrowRightIcon } from "@/icons";
-import { useCarousel } from "@/hooks/useCarousel";
+import { CardCarousel } from "@/components/CardCarousel";
 
 export default function Home() {
   return (
@@ -107,7 +107,7 @@ export default function Home() {
               <div className="w-full">
                 <h1 className="font-semibold leading-10 md:leading-15 text-[2rem] md:text-[3rem]">Through Traveler's Eyes</h1>
                 <div className="mt-5 md:mt-0 w-full flex flex-col md:flex-row gap-4 md:gap-0 md:items-center justify-between">
-                  <span className="text-[1rem] lg:text-[1.3rem]">Wujudkan Kelana Anda ikuti keseruan mereka di Jogja IstiMewah bersama Kala Kelana Creative.</span>
+                  <span className="text-[1rem] lg:text-[1.3rem] md:w-[80%]">Wujudkan Kelana Anda ikuti keseruan mereka di Jogja IstiMewah bersama Kala Kelana Creative.</span>
                   <a href="#" className="flex items-center gap-2">
                     <span className="capitalize font-semibold">Lihat Semua</span>
                     <ArrowRightIcon size={15} color="black" />
@@ -119,7 +119,7 @@ export default function Home() {
               <div className="w-full flex flex-col gap-8">
                 <div className="w-full flex flex-col gap-6 md:gap-0 md:flex-row items-center justify-between">
                   {JogjaArticles.filter(item => item.id !== 'ART-JOGJA-004').map((item) => (
-                    <ArticleCard key={item.id} title={item.title} alt={item.subtitle} date={item.date} image={item.image} dimension="w-70 md:w-[220px] lg:w-[300px] h-[400px] xl:w-[350px] xl:h-[600px]" />
+                    <ArticleCard href="#" key={item.id} title={item.title} alt={item.subtitle} date={item.date} image={item.image} dimension="w-70 md:w-[220px] lg:w-[300px] h-[400px] xl:w-[350px] xl:h-[600px]" images={item.images} />
                   ))}
                 </div>
 
@@ -128,10 +128,12 @@ export default function Home() {
                   .map((item) => (
                     <ArticleCard 
                       key={item.id}
+                      href="#"
                       title={item.title}
                       alt={item.subtitle}
                       date={item.date}
                       image={item.image}
+                      images={item.images}
                       dimension="w-full h-[500px] md:h-[600px]"
                     />
                   ))
@@ -167,7 +169,7 @@ export default function Home() {
                 <div className="w-full">
                   <h1 className="font-semibold leading-10 md:leading-15 text-[2rem] md:text-[3rem]">Let Kelana Guide Your Steps</h1>
                   <div className="mt-5 md:mt-0 w-full flex flex-col md:flex-row gap-4 md:gap-0 md:items-center justify-between">
-                    <span className="text-[1rem] lg:text-[1.3rem]">Pilih Keistimewaan Jogja dengan sajian IstiMewah dari Kala Kelana Creative. Moment Anda akan special selama di Jogja dimana pun destinasi-nya.</span>
+                    <span className="text-[1rem] lg:text-[1.3rem] md:w-[80%]">Pilih Keistimewaan Jogja dengan sajian IstiMewah dari Kala Kelana Creative. Moment Anda akan special selama di Jogja dimana pun destinasi-nya.</span>
                     <a href="#" className="flex items-center gap-2">
                       <span className="capitalize font-semibold">Lihat Semua</span>
                       <ArrowRightIcon size={15} color="black" />

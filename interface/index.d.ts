@@ -21,6 +21,18 @@ interface IconButtonProps {
   url?: string,
 }
 
+interface CarouselConfig {
+  itemsPerView: number;
+  scrollBy: number;
+  slideWidth: number;
+  gap?: number;
+  infinite: boolean;
+  autoPlay: boolean;
+  showDots?: boolean;
+  showButtons?: boolean;
+  autoPlayInterval?: number;
+}
+
 interface CarouselButtonProps {
   onPrev: () => void;
   onNext: () => void;
@@ -72,10 +84,11 @@ interface CardWithImageProps {
 
 interface ArticleCardProps {
   title: string, 
-  image: string, 
-  date: string, 
-  href?: string, 
-  alt?: string, 
+  image: string,
+  images?: string[],
+  date?: string, 
+  href: string, 
+  alt: string, 
   ariaLabel?: string,
   dimension?: string
 }

@@ -1,6 +1,13 @@
+'use client'
+
+import { useCarouselStoreInstance } from "@/hooks/useCarouselStoreInstance"
 import { ArrowRightIcon } from "@/icons"
 import Image from "next/image"
 import Link from "next/link"
+import { useMemo, useState } from "react"
+import CarouselItem from "./carouselItem"
+import Carousel from "./Carousel"
+import CarouselDots from "./CarouselDots"
 
 export const CardWithImage = ({ 
   title, 
@@ -84,28 +91,99 @@ export const CardWithImage = ({
   )
 }
 
-export const ArticleCard = ({title, image, date, href, alt, ariaLabel, dimension}:ArticleCardProps) => {
+export const ArticleCard = ({title, image, date, href, alt, ariaLabel, dimension, images}:ArticleCardProps) => {
+
+  const [config] = useState<CarouselConfig>({
+      itemsPerView: 1,
+      scrollBy: 1,
+      slideWidth: dimension?.includes('h-') ? 400 : 600,
+      gap: 0,
+      infinite: true,
+      autoPlay: true,
+      showDots: false,
+      showButtons: false,
+      autoPlayInterval: 3000,
+    });
+  
+  
+    const { store: carouselStore } = useCarouselStoreInstance(
+      'card-carousel', // ID unik untuk store ini
+      {
+        itemsPerView: config.itemsPerView,
+        scrollBy: config.scrollBy,
+        infinite: config.infinite,
+      }
+    );
+  
+    const carouselItems = useMemo(() => {
+      // Pastikan ini mengembalikan array
+      if (!images || images.length === 0) return [];
+      
+      return images.map((item, idx) => (
+        <CarouselItem key={`carousel-item-${idx}`} onClick={() => {}}>
+          <div className={`relative ${dimension}`}>
+            <Image
+              src={item}
+              alt={`carousel-image-${idx}`}
+              loading="lazy"
+              decoding="async"
+              fill // Untuk full cover
+              sizes="(max-width: 768px) 100vw, 400px"
+              className="object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+          </div>
+        </CarouselItem>
+      ));
+    }, [images]);
+
   return (
-    <a 
+    <Link
       href={href}
       className={`group block ${dimension} cursor-pointer`}
       aria-label={ariaLabel || `Baca artikel tentang ${title}`}
     >
       <div className={`flex flex-col gap-3 ${dimension}`}>
-        <div className={`relative overflow-hidden w-full h-full`}>
-          <div className="absolute inset-0">
-            {/* Image */}
-            <img
-              src={image}
-              alt={alt || title}
-              loading="lazy"
-              decoding="async"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              width={400}
-              height={600}
-            />
+
+        {images && images.length > 0 ? (
+          <div className={`relative overflow-hidden w-full h-full`}>
+            <Carousel
+              store={carouselStore}
+              itemsPerView={3}
+              scrollBy={1}
+              slideWidth={dimension?.includes('h-') ? 400 : 600}
+              gap={24}
+              infinite={true}
+              autoPlay={true}
+            >
+              {carouselItems}
+            </Carousel>
+
+            <div className="absolute bottom-0 w-full h-10 flex items-center justify-center bg-linear-to-t from-black/90 to-transparent">
+              <CarouselDots
+                store={carouselStore}
+                className="space-x-4"
+                dotClassName="w-8 h-1 bg-white rounded-sm"
+                activeDotClassName="w-8 h-1 bg-black rounded-sm"
+                customCount={images?.length}
+              />
+            </div>
           </div>
-        </div>
+        ) : (
+          <div className={`relative overflow-hidden w-full h-full`}>
+            <div className="absolute inset-0">
+              {/* Image */}
+              <Image
+                src={image}
+                alt={alt || title}
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                width={400}
+                height={600}
+              />
+            </div>
+          </div>
+        )}
         <div className="flex flex-col gap-3">
           <span className="text-[.9rem] text-[#333]">{date}</span>
           <span className="uppercase text-[1rem] font-bold">{title}</span>
@@ -115,6 +193,6 @@ export const ArticleCard = ({title, image, date, href, alt, ariaLabel, dimension
           </div>
         </div>
       </div>
-    </a>
+    </Link>
   )
 }
